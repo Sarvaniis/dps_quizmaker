@@ -6,10 +6,20 @@ from transformers import pipeline, MarianMTModel, MarianTokenizer
 import language_tool_python
 import random
 import spacy
-import spacy.cli  # Add this import for the spaCy cli
+# import spacy.cli  # Add this import for the spaCy cli
+from spacy.cli import download
+import os
+
+# Ensure model is installed
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
 
 # 🔽 Download the spaCy model (only runs if not already downloaded)
-spacy.cli.download("en_core_web_sm")
+# spacy.cli.download("en_core_web_sm")
 
 # 🌐 Page settings
 st.set_page_config(page_title="Text Understanding App", layout="wide")
