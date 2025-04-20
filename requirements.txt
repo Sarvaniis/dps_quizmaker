@@ -1,0 +1,7 @@
+streamlit
+pytesseract
+Pillow
+spacy
+transformers
+langdetect
+language-tool-python
