@@ -5,11 +5,24 @@ from langdetect import detect
 from transformers import pipeline, MarianMTModel, MarianTokenizer
 import language_tool_python
 import random
-import spacy
 # import spacy.cli  # Add this import for the spaCy cli
 import os
 
-nlp = spacy.load("en_core_web_sm")
+import spacy
+import spacy.cli
+
+try:
+    # Try to load the spaCy model
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    # If model is missing, download it
+    spacy.cli.download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
+# Test it (Optional)
+doc = nlp("This is a test sentence.")
+for token in doc:
+    print(token.text)
 
 # # Ensure model is installed
 # try:
