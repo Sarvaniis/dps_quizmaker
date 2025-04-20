@@ -31,9 +31,14 @@ st.sidebar.header("Options")
 @st.cache_resource
 def load_models():
     summarizer_model = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
-    grammar_tool = language_tool_python.LanguageTool('en-US')
+    
+    # Use remote server to avoid Java dependency
+    grammar_tool = language_tool_python.LanguageTool('en-US', remote_server='https://api.languagetool.org/')
+    
     spacy_model = spacy.load("en_core_web_sm")
+    
     return summarizer_model, grammar_tool, spacy_model
+
 
 summarizer, tool, nlp = load_models()
 
