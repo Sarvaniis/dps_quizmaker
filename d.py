@@ -8,7 +8,7 @@ import random
 import spacy
 
 # 🔧 Set path to Tesseract executable
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+#pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # 🌐 Page settings
 st.set_page_config(page_title="Text Understanding App", layout="wide")
