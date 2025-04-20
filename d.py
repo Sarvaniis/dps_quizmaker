@@ -6,9 +6,10 @@ from transformers import pipeline, MarianMTModel, MarianTokenizer
 import language_tool_python
 import random
 import spacy
+import spacy.cli  # Add this import for the spaCy cli
 
-# 🔧 Set path to Tesseract executable
-#pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# 🔽 Download the spaCy model (only runs if not already downloaded)
+spacy.cli.download("en_core_web_sm")
 
 # 🌐 Page settings
 st.set_page_config(page_title="Text Understanding App", layout="wide")
